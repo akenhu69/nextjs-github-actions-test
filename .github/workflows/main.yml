@@ -19,9 +19,9 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 #           ARGS: "-avz --delete"
 #           SOURCE: "out/"
-          REMOTE_HOST: ${{ SSH_HOST }}
-          REMOTE_USER: ${{ SSH_USERNAME }}
-          REMOTE_POST: ${{.SSH_POST }}
+          REMOTE_HOST: ${{ secrets.SSH_HOST }}
+          REMOTE_USER: ${{ secrets.SSH_USERNAME }}
+          REMOTE_POST: ${{ secrets.SSH_POST }}
           SCRIPT_AFTER: |
             cd /var/www/html/test/nextjs-github-actions-test
             git pull
