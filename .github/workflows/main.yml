@@ -1,0 +1,32 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy to Server
+        uses: easingthemes/ssh-deploy@v4
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+#           ARGS: "-avz --delete"
+#           SOURCE: "out/"
+          REMOTE_HOST: ${{ SSH_HOST }}
+          REMOTE_USER: ${{ SSH_USERNAME }}
+          REMOTE_POST: ${{.SSH_POST }}
+          SCRIPT_AFTER: |
+            cd /var/www/html/test/nextjs-github-actions-test
+            git pull
+            yarn
+            yarn build:prod
+            pm2 restart --name "nextjs-github-actions-test"
+            
+#           TARGET: "/var/www/html/test"
