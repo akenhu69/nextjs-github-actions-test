@@ -23,9 +23,11 @@ jobs:
           REMOTE_USER: root
           REMOTE_PORT: 2223
           SCRIPT_AFTER: |
+            # fix nvm command not found
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
             npm --help
+            #--------------------------
             nvm use 16
             node -v
             cd /var/www/html/test/nextjs-github-actions-test
