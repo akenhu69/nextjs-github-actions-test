@@ -28,6 +28,6 @@ jobs:
             nvm use 16
             yarn
             yarn build
-            pm2 restart --name "nextjs-github-actions-test"
+            pm2 restart nextjs-github-actions-test
             
 #           TARGET: "/var/www/html/test"
