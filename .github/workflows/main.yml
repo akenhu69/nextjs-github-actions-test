@@ -23,6 +23,7 @@ jobs:
           REMOTE_USER: root
           REMOTE_PORT: 2223
           SCRIPT_AFTER: |
+            exec bash
             source $HOME/.bashrc #fix nvm command is not found
             node -v
             nvm use 16
