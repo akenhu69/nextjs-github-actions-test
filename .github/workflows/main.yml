@@ -26,6 +26,7 @@ jobs:
             exec bash
             source $HOME/.bashrc #fix nvm command is not found
             echo $0
+            command -v nvm
             node -v
             nvm use 16
             node -v
