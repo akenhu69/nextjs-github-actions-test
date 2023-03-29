@@ -14,14 +14,14 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Deploy to Server
-        uses: easingthemes/ssh-deploy@v4
+        uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 #           ARGS: "-avz --delete"
 #           SOURCE: "out/"
           REMOTE_HOST: ${{ secrets.SSH_HOST }}
           REMOTE_USER: ${{ secrets.SSH_USERNAME }}
-          REMOTE_POST: ${{ secrets.SSH_POST }}
+          REMOTE_PORT: ${{ secrets.SSH_PORT }}
           SCRIPT_AFTER: |
             cd /var/www/html/test/nextjs-github-actions-test
             git pull
