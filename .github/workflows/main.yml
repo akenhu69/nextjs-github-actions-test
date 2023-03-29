@@ -25,7 +25,7 @@ jobs:
           SCRIPT_AFTER: |
             cd /var/www/html/test/nextjs-github-actions-test
             git pull
-            alias brc='source ~/.bashrc' #fix nvm command is not found
+            source $HOME/.bashrc #fix nvm command is not found
             nvm use 16
             yarn
             yarn build
