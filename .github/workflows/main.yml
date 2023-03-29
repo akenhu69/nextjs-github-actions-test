@@ -26,7 +26,7 @@ jobs:
             cd /var/www/html/test/nextjs-github-actions-test
             git pull
             yarn
-            yarn build:prod
+            yarn build
             pm2 restart --name "nextjs-github-actions-test"
             
 #           TARGET: "/var/www/html/test"
