@@ -24,9 +24,11 @@ jobs:
           REMOTE_PORT: 2223
           SCRIPT_AFTER: |
             source $HOME/.bashrc #fix nvm command is not found
+            node -v
+            nvm use 16
+            node -v
             cd /var/www/html/test/nextjs-github-actions-test
             git pull
-            nvm use 16
             yarn
             yarn build
             pm2 restart nextjs-github-actions-test
